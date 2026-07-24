@@ -31,11 +31,13 @@ public class AuthController : ControllerBase
         var jwtAudience = _configuration["Jwt:Audience"]!;
         var durationMinutes = int.Parse(_configuration["Jwt:DurationMinutes"] ?? "60");
 
+
+
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, request.Username),
             new Claim(ClaimTypes.Name, request.Username),
-            
+
             new Claim("role", "User")
         };
 
